@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Crystal Collector</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+
+<body>
+
+  <!-- add heading  and layout page -->
+  <!-- <div class="bg"></div> -->
+
+  <section class="view bg">
+    <div class="full-bg-img">
+      <div class="container flex-center">
+        <div class="row flex-center pt-5 mt-3">
+          <div class="col-md-12 text-center text-md-left margins">
+            <div class="p-3 mb-2 bg-dark text-white">
+              <h1 class="h1-responsive wow fadeInLeft" data-wow-delay="0.3s">Crystal Collector! </h1>
+              <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+              <h6 class="wow fadeInLeft" data-wow-delay="0.3s">When you start the game, you will receive a random number.
+                <br>
+                <br> Each of the four crystals will add a specific amount to your total score. The value of each crystal will
+                only appear when you click on it. You win the game by matching your total score with the random number.
+                <br>
+                <br> You will lose the game if you go over the amount of the random number. </h6>
+              <br>
+              <button id="reset" class="btn btn-danger operator" ><h3>Start a New Game</h3></button>
+              <!-- <a class="btn btn-btn-danger">Start New Game</a> -->
+              <!-- <a class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">Download
+                <i class="fa fa-android left right" aria-hidden="true"></i>
+                <i class="fa fa-apple left" aria-hidden="true"></i>
+                <i class="fa fa-windows" aria-hidden="true"></i>
+              </a> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="row">
+            <div class="col-md-2 col-sm-6">
+              <input type="image" src="./assets/images/diamond-1.jpg" alt="Emerald" >
+              </div>
+
+              <div class="row">
+                  <div class="col-md-2 col-sm-6">
+              <input type="image" src="./assets/images/purple.jpg" alt="Emerald" >
+                  </div>
+
+                  <div class="row">
+                      <div class="col-md-2 col-sm-6">
+        <input type="image" src="./assets/images/green.jpg" alt="Emerald" >
+                      </div>
+                      <div class="row">
+                          <div class="col-md-2 col-sm-6">
+        <input type="image" src="./assets/images/topaz.jpg" alt="Emerald" >
+        </div>
+        </div>
+         -->
+         <button id="diamond"  class="btn btn-outline-secondary"><h1><image src="./assets/images/diamond-1.jpg"></image></h1></button>
+
+         <button id="amethyst"  class="btn btn-outline-secondary"><h1><image src="./assets/images/purple.jpg"></image></h1></button>
+
+         <button id="emerald"  class="btn btn-outline-secondary"><h1><image src="./assets/images/green.jpg"></image></h1></button>
+
+         <button id="topaz"  class="btn btn-outline-secondary"><h1><image src="./assets/images/topaz.jpg"></image></h1></button>
+
+        <!-- <div class="row">
+          <div class="col-md-2 col-sm-6">
+            <div class="card bg-dark text-white">
+              <a href="https://puppitty.github.io/Psychic/" target="_blank">
+                <img class="card-img" src="./assets/images/diamond-1.jpg" alt="Diamond" class="social image-fluid">
+              </a>
+              <div class="card-img-overlay">
+                <h5 class="bg-info" "card-title">Diamond</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-6">
+            <div class="card bg-dark text-white">
+              <a href="https://puppitty.github.io/Psychic/" target="_blank">
+                <img class="card-img" src="./assets/images/purple.jpg" alt="Amethyst" class="social image-fluid">
+              </a>
+              <div class="card-img-overlay">
+                <h5 class="bg-info" "card-title">Amethyst</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-6">
+            <div class="card bg-dark text-white">
+              <a href="https://puppitty.github.io/Psychic/" target="_blank">
+                <img class="card-img" src="./assets/images/green.jpg" alt="Emerald" class="social image-fluid">
+              </a>
+              <div class="card-img-overlay">
+                <h5 class="bg-info" "card-title">Emerald</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-6">
+            <div class="card bg-dark text-white">
+              <a href="https://puppitty.github.io/Psychic/" target="_blank">
+                <img class="card-img" src="./assets/images/topaz.jpg" alt="Topaz" class="social image-fluid">
+              </a>
+              <div class="card-img-overlay">
+                <h5 class="bg-info" "card-title">Topaz</h5>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="row flex-center pt-2 mt-3 bg-dark text-white">
+          <div class="col-12 col-md-3 text-center py-3">
+            <h4>
+              Random number:
+              <span id="random-number">0</span>
+            </h4>
+          </div>
+          <div class="col-12 col-md-3 text-center py-3">
+            <h4>
+              Your Score:
+              <span id="your-score">0</span>
+            </h4>
+          </div>
+          <div class="col-12 col-md-3 text-center py-3">
+            <h4>
+              Wins:
+              <span id="wins">0</span>
+            </h4>
+          </div>
+          <div class="col-12 col-md-3 text-center py-3">
+            <h4>
+              Losses:
+              <span id="losses">0</span>
+            </h4>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+  </section>
+
+  </header>
+  <!--Main Navigation-->
+
+  <!--Main Layout-->
+  <main>
+
+    <div class="container">
+
+      <!--Grid row-->
+      <div class="row py-5">
+
+        <!--Grid column-->
+        <div class="col-md-12 text-center">
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+    </div>
+
+  </main>
+  <!--Main Layout-->
+
+
+  <p class="py-5 text-center">This example creates a full page background image. Try to resize the browser window to see how it always will cover the
+    full screen (when scrolled to top), and that it scales nicely on all screen sizes.</p>
+
+  <!-- Add Game instructions -->
+
+  <!-- Divs for Random Number -->
+
+  <!-- Div for gems -->
+
+  <!-- Div for amount for each gem, total user guess, wins, losses, reset button -->
+
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="./assets/javascript/game.js"></script>
+</body>
+
+</html>

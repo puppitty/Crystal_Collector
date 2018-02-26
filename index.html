@@ -14,44 +14,70 @@
 <body>
 
   <!-- add heading  and layout page -->
-  <!-- <div class="bg"></div> -->
-
   <section class="view bg">
     <div class="full-bg-img">
       <div class="container flex-center">
         <div class="row flex-center pt-5 mt-3">
           <div class="col-md-12 text-center text-md-left margins">
             <div class="p-3 mb-2 bg-dark text-white">
-              <h1 class="h1-responsive wow fadeInLeft" data-wow-delay="0.3s">Crystal Collector! </h1>
-              <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
-              <h6 class="wow fadeInLeft" data-wow-delay="0.3s">When you start the game, you will receive a random number.
+              <h1 class="h1-responsive ">Crystal Collector! </h1>
+
+              <!-- Add Game instructions -->
+              <h6 class="instructions">When you start the game, you will receive a random number.
                 <br>
                 <br> Each of the four crystals will add a specific amount to your total score. The value of each crystal will
                 only appear when you click on it. You win the game by matching your total score with the random number.
                 <br>
                 <br> You will lose the game if you go over the amount of the random number. </h6>
               <br>
-              <button id="reset" class="btn btn-danger operator" ><h5>Start a New Game</h5></button>
+              <button id="new-game" class="btn btn-danger operator">
+                <h5>Start a New Game</h5>
+              </button>
             </div>
           </div>
         </div>
 
-         <button id="diamond"  class="btn btn-outline-secondary"><h1><image src="./assets/images/diamond-1.jpg"></image></h1></button>
+        <!-- Buttons for gems -->
+        <button id="diamond" class="btn btn-outline-secondary">
+          <h1>
+            <image src="./assets/images/diamond-1.jpg"></image>
+          </h1>
+        </button>
 
-         <button id="amethyst"  class="btn btn-outline-secondary"><h1><image src="./assets/images/purple.jpg"></image></h1></button>
+        <button id="amethyst" class="btn btn-outline-secondary">
+          <h1>
+            <image src="./assets/images/purple.jpg"></image>
+          </h1>
+        </button>
 
-         <button id="emerald"  class="btn btn-outline-secondary"><h1><image src="./assets/images/green.jpg"></image></h1></button>
+        <button id="emerald" class="btn btn-outline-secondary">
+          <h1>
+            <image src="./assets/images/green.jpg"></image>
+          </h1>
+        </button>
 
-         <button id="topaz"  class="btn btn-outline-secondary"><h1><image src="./assets/images/topaz.jpg"></image></h1></button>
+        <button id="topaz" class="btn btn-outline-secondary">
+          <h1>
+            <image src="./assets/images/topaz.jpg"></image>
+          </h1>
+        </button>
 
- 
+
         <div class="row flex-center pt-2 mt-3 bg-dark text-white">
+          <div class="col-12 text-center">
+            <span id="message"></span>
+          </div>
+
+          <!-- Random Number -->
           <div class="col-12 col-md-3 text-center py-3">
+
+
             <h4>
               Random number:
               <span id="random-number">0</span>
             </h4>
           </div>
+          <!-- Div for amount for each gem, total user guess, wins, losses, reset button -->
           <div class="col-12 col-md-3 text-center py-3">
             <h4>
               Your Score:
@@ -78,17 +104,6 @@
 
 
   </section>
-
- 
-  
-  <!-- Add Game instructions -->
-
-  <!-- Divs for Random Number -->
-
-  <!-- Div for gems -->
-
-  <!-- Div for amount for each gem, total user guess, wins, losses, reset button -->
-
 
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

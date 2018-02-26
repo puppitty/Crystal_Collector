@@ -1,93 +1,103 @@
-  $(document).ready(function () {
-    var randomNumber = Math.floor(Math.random() * 101 + 19)
-    // Selects a random number to be shown at the start of the game
-    // Number should be should be between 19 - 120
-    //
-    $('#random-number').text(randomNumber);
-    // Appending random number to the randomNumber id in the html doc
-    //
-    var randomDiamond = Math.floor(Math.random() * 11 + 1)
-    var randomAmethyst = Math.floor(Math.random() * 11 + 1)
-    var randomEmerald = Math.floor(Math.random() * 11 + 1)
-    var randomTopaz = Math.floor(Math.random() * 11 + 1)
-    // Setting up random numbers for each jewel
-    // Random number has to be between 1 - 12
-    // 
-    var userSum = 0;
-    var wins = 0;
-    var losses = 0;
-    //  Decaring variables for tallies
-    $('#wins').text(wins);
-    $('#losses').text(losses);
-    //resets the game
-    function reset() {
-      randomNumber = Math.floor(Math.random() * 101 + 19);
-      console.log(randomNumber)
-      $('#random-number').text(randomNumber);
-      randomDiamond = Math.floor(Math.random() * 11 + 1);
-      randomAmethyst = Math.floor(Math.random() * 11 + 1);
-      randomEmerald = Math.floor(Math.random() * 11 + 1);
-      randomTopaz = Math.floor(Math.random() * 11 + 1);
-      userSum = 0;
-      $('#your-score').text(userSum);
-    }
-    //adds the wins to the userTotal
-    function winner() {
-      alert("You won!");
-      wins++;
-      $('#wins').text(wins);
-      reset();
-    }
-    //addes the losses to the userTotal
-    function loser() {
-      alert("You lose!");
-      losses++;
-      $('#losses').text(losses);
-      reset()
-    }
-    //sets up click for jewels
-    $('#diamond').on('click', function () {
-      userSum = userSum + randomDiamond;
-      console.log("New userTotal= " + userSum);
-      $('#your-score').text(userSum);
-      //sets win/lose conditions
-      if (userSum === randomNumber) {
-        winner();
-      } else if (userSum > randomNumber) {
-        loser();
-      }
-    })
-    $('#amethyst').on('click', function () {
-      userSum = userSum + randomAmethyst;
-      console.log(randomDiamond + " + " + randomAmethyst + " + " + randomEmerald + " + " + randomTopaz)
-      console.log("New userTotal= " + userSum);
-      $('#your-score').text(userSum);
-      if (userSum === randomNumber) {
-        winner();
-      } else if (userSum > randomNumber) {
-        loser();
-      }
-    })
-    $('#emerald').on('click', function () {
-      userSum = userSum + randomEmerald;
-      console.log("New userTotal= " + userSum);
-      $('#your-score').text(userSum);
-      //sets win/lose conditions
-      if (userSum === randomNumber) {
-        winner();
-      } else if (userSum > randomNumber) {
-        loser();
-      }
-    })
-    $('#topaz').on('click', function () {
-      userSum = userSum + randomEmerald;
-      console.log("New userTotal= " + userSum);
-      $('#your-score').text(userSum);
+$(document).ready(function () {
+  // Select Random Number between 19 and 120
+  var randomNumber = Math.floor(Math.random() * 101 + 19)
 
-      if (userSum === randomNumber) {
-        winner();
-      } else if (userSum > randomNumber) {
-        loser();
-      }
-    });
+  // displays Random Number in HTML
+  $('#random-number').text(randomNumber);
+
+  // Selects random value for each gem stone between 1 and 12
+  var $newGameButton = document.getElementById('new-game');
+
+  var randomDiamond = Math.floor(Math.random() * 11 + 1)
+  var randomAmethyst = Math.floor(Math.random() * 11 + 1)
+  var randomEmerald = Math.floor(Math.random() * 11 + 1)
+  var randomTopaz = Math.floor(Math.random() * 11 + 1)
+
+  // Declare variables
+  var userSum = 0;
+  var wins = 0;
+  var losses = 0;
+
+  //  Write scores to HTML
+  $('#wins').text(wins);
+  $('#losses').text(losses);
+
+  //resets the game
+  function reset() {
+    randomNumber = Math.floor(Math.random() * 101 + 19);
+    console.log(randomNumber)
+    $('#random-number').text(randomNumber);
+    randomDiamond = Math.floor(Math.random() * 11 + 1);
+    randomAmethyst = Math.floor(Math.random() * 11 + 1);
+    randomEmerald = Math.floor(Math.random() * 11 + 1);
+    randomTopaz = Math.floor(Math.random() * 11 + 1);
+    userSum = 0;
+
+    // Updates User score on teh screen
+    $('#your-score').text(userSum);
+  }
+
+  // Checks to see if winner
+  function winner() {
+    $('#message').html("<h4>You Win!</h4>");
+    wins++;
+    $('#wins').text(wins);
+    reset();
+  }
+
+  //Checks to see if loser
+  function loser() {
+    $('#message').html("<h4>You Lose!</h4>");
+    losses++;
+    $('#losses').text(losses);
+    reset()
+  }
+
+  // Checks for click on each gem stone
+  $('#diamond').on('click', function () {
+    userSum = userSum + randomDiamond;
+    console.log("New userTotal= " + userSum);
+    $('#your-score').text(userSum);
+
+    // Checks for game end
+    if (userSum === randomNumber) {
+      winner();
+    } else if (userSum > randomNumber) {
+      loser();
+    }
+  })
+
+  $('#amethyst').on('click', function () {
+    userSum = userSum + randomAmethyst;
+    console.log(randomDiamond + " + " + randomAmethyst + " + " + randomEmerald + " + " + randomTopaz)
+    console.log("New userTotal= " + userSum);
+    $('#your-score').text(userSum);
+    if (userSum === randomNumber) {
+      winner();
+    } else if (userSum > randomNumber) {
+      loser();
+    }
+  })
+  $('#emerald').on('click', function () {
+    userSum = userSum + randomEmerald;
+    console.log("New userTotal= " + userSum);
+    $('#your-score').text(userSum);
+    //sets win/lose conditions
+    if (userSum === randomNumber) {
+      winner();
+    } else if (userSum > randomNumber) {
+      loser();
+    }
+  })
+  $('#topaz').on('click', function () {
+    userSum = userSum + randomTopaz;
+    console.log("New userTotal= " + userSum);
+    $('#your-score').text(userSum);
+    if (userSum === randomNumber) {
+      winner();
+    } else if (userSum > randomNumber) {
+      loser();
+    }
   });
+  $newGameButton.addEventListener('click', reset);
+});

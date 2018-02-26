@@ -25,7 +25,7 @@ $(document).ready(function () {
   //resets the game
   function reset() {
     randomNumber = Math.floor(Math.random() * 101 + 19);
-    console.log(randomNumber)
+    // Updates the Random Number
     $('#random-number').text(randomNumber);
     randomDiamond = Math.floor(Math.random() * 11 + 1);
     randomAmethyst = Math.floor(Math.random() * 11 + 1);
@@ -33,13 +33,16 @@ $(document).ready(function () {
     randomTopaz = Math.floor(Math.random() * 11 + 1);
     userSum = 0;
 
-    // Updates User score on teh screen
+    // Updates User score on the screen
     $('#your-score').text(userSum);
+    $("#message").fadeOut(3000);
   }
 
   // Checks to see if winner
   function winner() {
+
     $('#message').html("<h4>You Win!</h4>");
+    $("#message").show;
     wins++;
     $('#wins').text(wins);
     reset();
@@ -48,6 +51,7 @@ $(document).ready(function () {
   //Checks to see if loser
   function loser() {
     $('#message').html("<h4>You Lose!</h4>");
+    $("#message").show;
     losses++;
     $('#losses').text(losses);
     reset()
@@ -69,8 +73,8 @@ $(document).ready(function () {
 
   $('#amethyst').on('click', function () {
     userSum = userSum + randomAmethyst;
-    console.log(randomDiamond + " + " + randomAmethyst + " + " + randomEmerald + " + " + randomTopaz)
-    console.log("New userTotal= " + userSum);
+    // console.log(randomDiamond + " + " + randomAmethyst + " + " + randomEmerald + " + " + randomTopaz)
+    // console.log("New userTotal= " + userSum);
     $('#your-score').text(userSum);
     if (userSum === randomNumber) {
       winner();
@@ -80,9 +84,9 @@ $(document).ready(function () {
   })
   $('#emerald').on('click', function () {
     userSum = userSum + randomEmerald;
-    console.log("New userTotal= " + userSum);
+    // console.log("New userTotal= " + userSum);
     $('#your-score').text(userSum);
-    //sets win/lose conditions
+    //check for win or loss
     if (userSum === randomNumber) {
       winner();
     } else if (userSum > randomNumber) {
@@ -91,7 +95,7 @@ $(document).ready(function () {
   })
   $('#topaz').on('click', function () {
     userSum = userSum + randomTopaz;
-    console.log("New userTotal= " + userSum);
+    // console.log("New userTotal= " + userSum);
     $('#your-score').text(userSum);
     if (userSum === randomNumber) {
       winner();
@@ -99,5 +103,7 @@ $(document).ready(function () {
       loser();
     }
   });
+
+  // Listens for Start a new Game button
   $newGameButton.addEventListener('click', reset);
 });

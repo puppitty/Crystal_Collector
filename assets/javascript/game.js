@@ -1,67 +1,93 @@
-$(document).ready(function() {
+  $(document).ready(function () {
+    var randomNumber = Math.floor(Math.random() * 101 + 19)
+    // Selects a random number to be shown at the start of the game
+    // Number should be should be between 19 - 120
+    //
+    $('#random-number').text(randomNumber);
+    // Appending random number to the randomNumber id in the html doc
+    //
+    var randomDiamond = Math.floor(Math.random() * 11 + 1)
+    var randomAmethyst = Math.floor(Math.random() * 11 + 1)
+    var randomEmerald = Math.floor(Math.random() * 11 + 1)
+    var randomTopaz = Math.floor(Math.random() * 11 + 1)
+    // Setting up random numbers for each jewel
+    // Random number has to be between 1 - 12
+    // 
+    var userSum = 0;
+    var wins = 0;
+    var losses = 0;
+    //  Decaring variables for tallies
+    $('#wins').text(wins);
+    $('#losses').text(losses);
+    //resets the game
+    function reset() {
+      randomNumber = Math.floor(Math.random() * 101 + 19);
+      console.log(randomNumber)
+      $('#random-number').text(randomNumber);
+      randomDiamond = Math.floor(Math.random() * 11 + 1);
+      randomAmethyst = Math.floor(Math.random() * 11 + 1);
+      randomEmerald = Math.floor(Math.random() * 11 + 1);
+      randomTopaz = Math.floor(Math.random() * 11 + 1);
+      userSum = 0;
+      $('#your-score').text(userSum);
+    }
+    //adds the wins to the userTotal
+    function winner() {
+      alert("You won!");
+      wins++;
+      $('#wins').text(wins);
+      reset();
+    }
+    //addes the losses to the userTotal
+    function loser() {
+      alert("You lose!");
+      losses++;
+      $('#losses').text(losses);
+      reset()
+    }
+    //sets up click for jewels
+    $('#diamond').on('click', function () {
+      userSum = userSum + randomDiamond;
+      console.log("New userTotal= " + userSum);
+      $('#your-score').text(userSum);
+      //sets win/lose conditions
+      if (userSum === randomNumber) {
+        winner();
+      } else if (userSum > randomNumber) {
+        loser();
+      }
+    })
+    $('#amethyst').on('click', function () {
+      userSum = userSum + randomAmethyst;
+      console.log(randomDiamond + " + " + randomAmethyst + " + " + randomEmerald + " + " + randomTopaz)
+      console.log("New userTotal= " + userSum);
+      $('#your-score').text(userSum);
+      if (userSum === randomNumber) {
+        winner();
+      } else if (userSum > randomNumber) {
+        loser();
+      }
+    })
+    $('#emerald').on('click', function () {
+      userSum = userSum + randomEmerald;
+      console.log("New userTotal= " + userSum);
+      $('#your-score').text(userSum);
+      //sets win/lose conditions
+      if (userSum === randomNumber) {
+        winner();
+      } else if (userSum > randomNumber) {
+        loser();
+      }
+    })
+    $('#topaz').on('click', function () {
+      userSum = userSum + randomEmerald;
+      console.log("New userTotal= " + userSum);
+      $('#your-score').text(userSum);
 
-// variables to be written back to HTML
-var $newGameButton = document.getElementbyId("reset");
-var $diamond = document.getElementById('diamond');
-var $amethyst = document.getElementById('amethyst');
-var $emerald = document.getElementById('emerald');
-var $topaz = document.getElementById('topaz');
-var $randomNumber = document.getElementById('random-number');
-var $wins = document.getElementById('wins');
-var $losses = document.getElementById('losses');
-
-// variables for the game
-var randomDiamond = 0;
-var randomAmethyst = 0;
-var randomEmerald = 0;
-var randomTopaz = 0;
-var wins = 0;
-var losses = 0;
-var gameRunning = false;
-var randomNumber = 0;
-var userSum = 0;
-
-// Reset Game function
-function newGame() {
-  // Reset all game info
-  gameRunning = true;
-  userSum = 0;
-  randomNumber = Math.floor(Math.random()*101+19);
-  randomDiamond = Math.floor(Math.random()*11+1);
-  randomAmethyst = Math.floor(Math.random()*11+1);
-  randomEmerald = Math.floor(Math.random()*11+1);
-  randomTopaz = Math.floor(Math.random()*11+1);
-  console.log(randomNumber);
-  console.log(randomDiamond);
-
-
-
-  // create random number from 19 to 120 for gameRandomNo
-
-  
-
-  function random(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  }
-
-  // create random numbers for each of the gems between 1 and 12, but all 4 different
-
-  // On first click of one of the gems, check to see if game is running, display to the DOM the value of gameRandomNo
-  // show value of the GEm stone. Add value to playerScore, Check playerScore to gameRandomNo. If === player wins the game. If > player loses the game. else go back to allow another Gem click.
-
-  randomNumber(19, 120);
-  randomDiamond = randomNumber(1, 12);
-  randomAmethyst(1, 12);
-  randomEmerald(1, 12);
-  randomTopaz(1, 12);
-
-
-  // function randomNumber(min, max) {
-  //     return Math.floor(Math.random() * (max - min)) + min;
-  // }
-
-  //Update total score, wins, losses
-
-  // Write answers to the DOM
-}
-
+      if (userSum === randomNumber) {
+        winner();
+      } else if (userSum > randomNumber) {
+        loser();
+      }
+    });
+  });

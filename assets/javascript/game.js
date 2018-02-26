@@ -40,7 +40,6 @@ $(document).ready(function () {
 
   // Checks to see if winner
   function winner() {
-
     $('#message').html("<h4>You Win!</h4>");
     $("#message").show;
     wins++;
@@ -60,7 +59,6 @@ $(document).ready(function () {
   // Checks for click on each gem stone
   $('#diamond').on('click', function () {
     userSum = userSum + randomDiamond;
-    console.log("New userTotal= " + userSum);
     $('#your-score').text(userSum);
 
     // Checks for game end
@@ -73,8 +71,6 @@ $(document).ready(function () {
 
   $('#amethyst').on('click', function () {
     userSum = userSum + randomAmethyst;
-    // console.log(randomDiamond + " + " + randomAmethyst + " + " + randomEmerald + " + " + randomTopaz)
-    // console.log("New userTotal= " + userSum);
     $('#your-score').text(userSum);
     if (userSum === randomNumber) {
       winner();
@@ -84,7 +80,6 @@ $(document).ready(function () {
   })
   $('#emerald').on('click', function () {
     userSum = userSum + randomEmerald;
-    // console.log("New userTotal= " + userSum);
     $('#your-score').text(userSum);
     //check for win or loss
     if (userSum === randomNumber) {
@@ -95,7 +90,6 @@ $(document).ready(function () {
   })
   $('#topaz').on('click', function () {
     userSum = userSum + randomTopaz;
-    // console.log("New userTotal= " + userSum);
     $('#your-score').text(userSum);
     if (userSum === randomNumber) {
       winner();
